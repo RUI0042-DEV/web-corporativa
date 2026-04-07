@@ -7,7 +7,7 @@ Per aquest motiu ens demanen una proposta, però no volen veure una prova funcio
 
 ## Demostració
 
-[🌐 URL de la web](https://[usuari].github.io/[nom-del-repositori])
+[🌐 URL de la web](https://rui0042-dev.github.io/web-corporativa/)
 
 ## Tecnologies Utilitzades
 
