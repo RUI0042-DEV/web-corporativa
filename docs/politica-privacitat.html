@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Política de Privacitat de FoodLogistic S.A." />
+  <meta name="description" content="Política de Privacitat de FoodLogistic S.A. – RGPD i LOPDGDD." />
   <title>Política de Privacitat – FoodLogistic S.A.</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -16,13 +16,13 @@
         <span class="brand-icon">&#9651;</span>
         <span class="brand-name">FoodLogistic <span class="brand-sa">S.A.</span></span>
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="nav-links">
         <li><a href="index.html#inici">Inici</a></li>
         <li><a href="index.html#serveis">Serveis</a></li>
         <li><a href="index.html#sobre">Sobre nosaltres</a></li>
         <li><a href="index.html#contacte" class="btn-nav">Contacte</a></li>
       </ul>
-      <button class="burger" aria-label="Menú" onclick="toggleMenu()">&#9776;</button>
+      <button class="burger" aria-label="Obrir menú" aria-expanded="false" aria-controls="nav-links" onclick="toggleMenu(this)">&#9776;</button>
     </nav>
   </header>
 
@@ -33,7 +33,7 @@
 
       <span class="section-label">Protecció de dades</span>
       <h1>Política de Privacitat</h1>
-      <p class="legal-meta">Darrera actualització: gener de 2025 · Conforme al RGPD (UE) 2016/679 i la LOPDGDD (LO 3/2018)</p>
+      <p class="legal-meta">Darrera actualització: gener de 2025 &middot; Conforme al RGPD (UE) 2016/679 i la LOPDGDD (LO 3/2018)</p>
 
       <div class="legal-box">
         <p>A FoodLogistic S.A. ens comprometem a protegir la vostra privacitat i tractar les vostres dades personals amb la màxima transparència i responsabilitat, d'acord amb el Reglament General de Protecció de Dades (RGPD) i la Llei Orgànica de Protecció de Dades i Garantia dels Drets Digitals (LOPDGDD).</p>
@@ -44,8 +44,8 @@
       <p><strong>NIF:</strong> A-08XXXXXX</p>
       <p><strong>Adreça:</strong> Carrer de la Indústria, 42, 08025 Barcelona</p>
       <p><strong>Telèfon:</strong> +34 93 000 00 00</p>
-      <p><strong>Correu electrònic del responsable:</strong> privacitat@foodlogistic.cat</p>
-      <p><strong>Delegat de Protecció de Dades (DPD):</strong> dpd@foodlogistic.cat</p>
+      <p><strong>Correu electrònic del responsable:</strong> <a href="mailto:privacitat@foodlogistic.cat">privacitat@foodlogistic.cat</a></p>
+      <p><strong>Delegat de Protecció de Dades (DPD):</strong> <a href="mailto:dpd@foodlogistic.cat">dpd@foodlogistic.cat</a></p>
 
       <h2>2. Dades que tractem i finalitats</h2>
       <table>
@@ -137,13 +137,13 @@
       </ul>
 
       <div class="legal-box">
-        <p><strong>Com exercir els vostres drets:</strong> Envieu una sol·licitud per escrit a <strong>privacitat@foodlogistic.cat</strong> o per correu postal a Carrer de la Indústria, 42, 08025 Barcelona, adjuntant una còpia del vostre DNI o document identificatiu equivalent. Respondrem en un termini màxim d'<strong>un mes</strong> des de la recepció de la sol·licitud.</p>
+        <p><strong>Com exercir els vostres drets:</strong> Envieu una sol·licitud per escrit a <a href="mailto:privacitat@foodlogistic.cat"><strong>privacitat@foodlogistic.cat</strong></a> o per correu postal a Carrer de la Indústria, 42, 08025 Barcelona, adjuntant una còpia del vostre DNI o document identificatiu equivalent. Respondrem en un termini màxim d'<strong>un mes</strong> des de la recepció de la sol·licitud.</p>
       </div>
 
       <p>Si considereu que el tractament de les vostres dades vulnera la normativa vigent, teniu dret a presentar una reclamació davant l'<strong>Agència Espanyola de Protecció de Dades (AEPD)</strong> a través de <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
 
       <h2>7. Mesures de seguretat</h2>
-      <p>FoodLogistic S.A. ha adoptat les mesures tècniques i organitzatives necessàries per garantir la seguretat de les dades personals i evitar-ne l'alteració, pèrdua, tractament o accés no autoritzat, tenint en compte l'estat de la tecnologia, la naturalesa de les dades emmagatzemades i els riscos als quals estan exposades. Entre d'altres mesures:</p>
+      <p>FoodLogistic S.A. ha adoptat les mesures tècniques i organitzatives necessàries per garantir la seguretat de les dades personals i evitar-ne l'alteració, pèrdua, tractament o accés no autoritzat. Entre d'altres mesures:</p>
       <ul>
         <li>Comunicació xifrada mitjançant protocol HTTPS (TLS 1.2+).</li>
         <li>Control d'accés restringit als sistemes d'informació.</li>
@@ -165,8 +165,10 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="brand-icon">&#9651;</span>
-        <span class="brand-name">FoodLogistic <span class="brand-sa">S.A.</span></span>
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <span class="brand-icon">&#9651;</span>
+          <span class="brand-name">FoodLogistic <span class="brand-sa">S.A.</span></span>
+        </div>
         <p>Logística alimentària de confiança des de 1999.</p>
       </div>
       <div class="footer-links">
@@ -193,8 +195,10 @@
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('open');
+    function toggleMenu(btn) {
+      const nav = document.getElementById('nav-links');
+      const isOpen = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
     }
   </script>
 </body>

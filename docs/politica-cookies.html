@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Política de Cookies de FoodLogistic S.A." />
+  <meta name="description" content="Política de Cookies de FoodLogistic S.A. – Informació sobre les cookies utilitzades i com gestionar-les." />
   <title>Política de Cookies – FoodLogistic S.A.</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -16,13 +16,13 @@
         <span class="brand-icon">&#9651;</span>
         <span class="brand-name">FoodLogistic <span class="brand-sa">S.A.</span></span>
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="nav-links">
         <li><a href="index.html#inici">Inici</a></li>
         <li><a href="index.html#serveis">Serveis</a></li>
         <li><a href="index.html#sobre">Sobre nosaltres</a></li>
         <li><a href="index.html#contacte" class="btn-nav">Contacte</a></li>
       </ul>
-      <button class="burger" aria-label="Menú" onclick="toggleMenu()">&#9776;</button>
+      <button class="burger" aria-label="Obrir menú" aria-expanded="false" aria-controls="nav-links" onclick="toggleMenu(this)">&#9776;</button>
     </nav>
   </header>
 
@@ -33,7 +33,7 @@
 
       <span class="section-label">Cookies</span>
       <h1>Política de Cookies</h1>
-      <p class="legal-meta">Darrera actualització: gener de 2025 · Conforme a la Directiva 2009/136/CE i la LSSI-CE art. 22.2</p>
+      <p class="legal-meta">Darrera actualització: gener de 2025 &middot; Conforme a la Directiva 2009/136/CE i la LSSI-CE art. 22.2</p>
 
       <div class="legal-box">
         <p>Aquesta pàgina us informa de manera clara i completa sobre les cookies que utilitza el lloc web <strong>foodlogistic.cat</strong>, la seva finalitat, durada i com podeu gestionar-les o eliminar-les, d'acord amb la normativa vigent.</p>
@@ -95,9 +95,13 @@
       <ul>
         <li><strong>Acceptar totes les cookies:</strong> s'activen tant les necessàries com les analítiques.</li>
         <li><strong>Rebutjar les no essencials:</strong> s'activen únicament les cookies estrictament necessàries.</li>
-        <li><strong>Configurar:</strong> accediu a aquesta pàgina per obtenir informació detallada.</li>
+        <li><strong>Més informació:</strong> accediu a aquesta pàgina per obtenir informació detallada.</li>
       </ul>
       <p>Podeu canviar les vostres preferències en qualsevol moment esborrant les dades emmagatzemades al navegador (vegeu apartat 4.2) o contactant amb nosaltres a <a href="mailto:privacitat@foodlogistic.cat">privacitat@foodlogistic.cat</a>.</p>
+
+      <div style="margin: 1.5rem 0;">
+        <button onclick="resetCookies()" style="background: var(--brand); color: #fff; border: none; padding: 0.65rem 1.4rem; border-radius: 6px; font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: inherit;">&#9881; Restablir preferències de cookies</button>
+      </div>
 
       <h2>4.2 A través del navegador</h2>
       <p>Podeu permetre, bloquejar o eliminar les cookies instal·lades al vostre dispositiu a través de la configuració del vostre navegador:</p>
@@ -122,8 +126,10 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="brand-icon">&#9651;</span>
-        <span class="brand-name">FoodLogistic <span class="brand-sa">S.A.</span></span>
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <span class="brand-icon">&#9651;</span>
+          <span class="brand-name">FoodLogistic <span class="brand-sa">S.A.</span></span>
+        </div>
         <p>Logística alimentària de confiança des de 1999.</p>
       </div>
       <div class="footer-links">
@@ -150,8 +156,14 @@
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('open');
+    function toggleMenu(btn) {
+      const nav = document.getElementById('nav-links');
+      const isOpen = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
+    }
+    function resetCookies() {
+      localStorage.removeItem('cookieConsent');
+      alert('Preferències restablertes. En tornar a la pàgina principal veureu el banner de cookies.');
     }
   </script>
 </body>

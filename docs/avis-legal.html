@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Avís Legal de FoodLogistic S.A." />
+  <meta name="description" content="Avís Legal de FoodLogistic S.A. – Informació legal, condicions d'ús i propietat intel·lectual." />
   <title>Avís Legal – FoodLogistic S.A.</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -16,13 +16,13 @@
         <span class="brand-icon">&#9651;</span>
         <span class="brand-name">FoodLogistic <span class="brand-sa">S.A.</span></span>
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="nav-links">
         <li><a href="index.html#inici">Inici</a></li>
         <li><a href="index.html#serveis">Serveis</a></li>
         <li><a href="index.html#sobre">Sobre nosaltres</a></li>
         <li><a href="index.html#contacte" class="btn-nav">Contacte</a></li>
       </ul>
-      <button class="burger" aria-label="Menú" onclick="toggleMenu()">&#9776;</button>
+      <button class="burger" aria-label="Obrir menú" aria-expanded="false" aria-controls="nav-links" onclick="toggleMenu(this)">&#9776;</button>
     </nav>
   </header>
 
@@ -33,7 +33,7 @@
 
       <span class="section-label">Informació legal</span>
       <h1>Avís Legal</h1>
-      <p class="legal-meta">Darrera actualització: gener de 2025 · Aplicable a: foodlogistic.cat</p>
+      <p class="legal-meta">Darrera actualització: gener de 2025 &middot; Aplicable a: foodlogistic.cat</p>
 
       <div class="legal-box">
         <p>En compliment de la Llei 34/2002, d'11 de juliol, de Serveis de la Societat de la Informació i del Comerç Electrònic (LSSI-CE), a continuació es facilita la informació legal de l'empresa titular d'aquest lloc web.</p>
@@ -67,7 +67,7 @@
 
       <h2>5. Comunicacions comercials electròniques</h2>
       <p>Conformement a la LSSI-CE, FoodLogistic S.A. únicament enviarà comunicacions comercials electròniques als usuaris que hagin prestat el seu consentiment exprés i inequívoc, mitjançant la casella de selecció habilitada al formulari de contacte.</p>
-      <p>L'usuari podrà revocar en qualsevol moment el consentiment atorgat enviant un correu electrònic a <strong>privacitat@foodlogistic.cat</strong> o fent clic a l'opció de baixa inclosa en qualsevol comunicació rebuda.</p>
+      <p>L'usuari podrà revocar en qualsevol moment el consentiment atorgat enviant un correu electrònic a <a href="mailto:privacitat@foodlogistic.cat"><strong>privacitat@foodlogistic.cat</strong></a> o fent clic a l'opció de baixa inclosa en qualsevol comunicació rebuda.</p>
 
       <h2>6. Responsabilitat</h2>
       <p>FoodLogistic S.A. no es responsabilitza dels danys i perjudicis que puguin derivar de:</p>
@@ -94,8 +94,10 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="brand-icon">&#9651;</span>
-        <span class="brand-name">FoodLogistic <span class="brand-sa">S.A.</span></span>
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <span class="brand-icon">&#9651;</span>
+          <span class="brand-name">FoodLogistic <span class="brand-sa">S.A.</span></span>
+        </div>
         <p>Logística alimentària de confiança des de 1999.</p>
       </div>
       <div class="footer-links">
@@ -122,8 +124,10 @@
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('open');
+    function toggleMenu(btn) {
+      const nav = document.getElementById('nav-links');
+      const isOpen = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
     }
   </script>
 </body>
