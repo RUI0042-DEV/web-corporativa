@@ -9,6 +9,21 @@
 </head>
 <body>
 
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Avís de cookies" style="display:none;">
+    <div class="cookie-inner">
+      <div class="cookie-text">
+        <strong>🍪 Aquesta web utilitza cookies</strong>
+        <p>Fem servir cookies pròpies i de tercers per analitzar el trànsit web (Statcounter) i millorar la vostra experiència. Podeu acceptar-les totes, configurar-les o rebutjar les no essencials. Consulteu la nostra <a href="politica-cookies.html">Política de cookies</a> per a més informació.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="btn-primary" onclick="acceptCookies()">Acceptar totes</button>
+        <button class="btn-secondary" onclick="rejectCookies()">Rebutjar no essencials</button>
+        <a href="politica-cookies.html" class="cookie-config-link">Configurar</a>
+      </div>
+    </div>
+  </div>
+
   <!-- NAV -->
   <header class="site-header">
     <nav class="nav container">
@@ -41,18 +56,15 @@
       <div class="hero-visual">
         <div class="hero-card hc1">
           <span class="hc-icon">&#10052;</span>
-          <strong>Cadena de fred</strong>
-          <span>-18 °C garantits</span>
+          <div><strong>Cadena de fred</strong><span>-18 °C garantits</span></div>
         </div>
         <div class="hero-card hc2">
           <span class="hc-icon">&#128204;</span>
-          <strong>Traçabilitat</strong>
-          <span>Temps real 24/7</span>
+          <div><strong>Traçabilitat</strong><span>Temps real 24/7</span></div>
         </div>
         <div class="hero-card hc3">
           <span class="hc-icon">&#128666;</span>
-          <strong>Flota pròpia</strong>
-          <span>+120 vehicles</span>
+          <div><strong>Flota pròpia</strong><span>+120 vehicles</span></div>
         </div>
       </div>
     </div>
@@ -77,43 +89,36 @@
         <p>Cobrim tota la cadena logística del sector alimentari, des de l'origen fins al punt de venda.</p>
       </div>
       <div class="services-grid">
-
         <div class="service-card">
           <div class="service-icon ic-blue">&#10052;</div>
           <h3>Transport en fred</h3>
           <p>Flota refrigerada i congelada amb control de temperatura continu i certificat per a productes d'alta sensibilitat.</p>
         </div>
-
         <div class="service-card">
           <div class="service-icon ic-green">&#127968;</div>
           <h3>Emmagatzematge</h3>
           <p>Magatzems de temperatura controlada (0–4 °C i -18 °C) amb gestió d'estoc i FIFO automatitzat.</p>
         </div>
-
         <div class="service-card">
           <div class="service-icon ic-amber">&#128204;</div>
           <h3>Traçabilitat i TIC</h3>
           <p>Plataforma pròpia de seguiment en temps real: saps on és la teva mercaderia en tot moment.</p>
         </div>
-
         <div class="service-card">
           <div class="service-icon ic-teal">&#128336;</div>
           <h3>Logística de darrera milla</h3>
           <p>Distribució urbana amb vehicles de baixes emissions per a supermercats, restaurants i hostaleria.</p>
         </div>
-
         <div class="service-card">
           <div class="service-icon ic-coral">&#128200;</div>
           <h3>Gestió de retorns</h3>
           <p>Circuit inverti de recollida de productes no venuts i gestió de residus conforme a normativa.</p>
         </div>
-
         <div class="service-card">
           <div class="service-icon ic-purple">&#128203;</div>
           <h3>Consultoria logística</h3>
           <p>Anàlisi i optimització de la teva cadena de subministrament per reduir costos i emissions.</p>
         </div>
-
       </div>
     </div>
   </section>
@@ -197,12 +202,21 @@
         </div>
         <div class="form-group">
           <label for="missatge">Missatge *</label>
-          <textarea id="missatge" name="missatge" rows="5" placeholder="Expliqueu-nos la vostra consulta..." required></textarea>
+          <textarea id="missatge" name="missatge" rows="4" placeholder="Expliqueu-nos la vostra consulta..." required></textarea>
         </div>
+
+        <!-- CHECKBOX 1: Consentiment de dades (obligatori) -->
         <div class="form-group form-check">
-          <input type="checkbox" id="privacitat" required />
-          <label for="privacitat">He llegit i accepto la <a href="#politica">política de privacitat</a> (LOPDGDD)</label>
+          <input type="checkbox" id="privacitat" name="privacitat" required />
+          <label for="privacitat">He llegit i accepto la <a href="politica-privacitat.html" target="_blank">política de privacitat</a> i autoritzo el tractament de les meves dades personals per atendre la meva consulta. (RGPD / LOPDGDD) *</label>
         </div>
+
+        <!-- CHECKBOX 2: Comunicacions comercials (opcional) -->
+        <div class="form-group form-check">
+          <input type="checkbox" id="comunicacions" name="comunicacions" />
+          <label for="comunicacions">Autoritzo FoodLogistic S.A. a enviar-me comunicacions comercials sobre els seus serveis, ofertes i novetats, d'acord amb l'<a href="avis-legal.html" target="_blank">avís legal</a> i la Llei 34/2002 (LSSI-CE). (Opcional)</label>
+        </div>
+
         <button type="submit" class="btn-primary btn-full">Enviar missatge</button>
         <div id="form-ok" class="form-ok" style="display:none;">&#10003; Missatge enviat! Us respondrem aviat.</div>
       </form>
@@ -229,9 +243,9 @@
       <div class="footer-legal">
         <h4>Legal</h4>
         <ul>
-          <li><a href="#politica" id="politica">Política de privacitat</a></li>
-          <li><a href="#cookies">Política de cookies</a></li>
-          <li><a href="#avis">Avís legal (LSSI-CE)</a></li>
+          <li><a href="politica-privacitat.html">Política de privacitat</a></li>
+          <li><a href="politica-cookies.html">Política de cookies</a></li>
+          <li><a href="avis-legal.html">Avís legal (LSSI-CE)</a></li>
         </ul>
       </div>
     </div>
@@ -242,37 +256,56 @@
   </footer>
 
   <script>
+    // Menu
     function toggleMenu() {
       document.querySelector('.nav-links').classList.toggle('open');
     }
+
+    // Form submit
     function handleSubmit(e) {
       e.preventDefault();
       document.getElementById('form-ok').style.display = 'block';
       e.target.reset();
     }
+
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const target = document.querySelector(a.getAttribute('href'));
         if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
       });
     });
+
+    // Cookie banner
+    function showCookieBanner() {
+      const consent = localStorage.getItem('cookieConsent');
+      if (!consent) {
+        document.getElementById('cookie-banner').style.display = 'block';
+      }
+    }
+    function acceptCookies() {
+      localStorage.setItem('cookieConsent', 'all');
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+    function rejectCookies() {
+      localStorage.setItem('cookieConsent', 'essential');
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+    window.addEventListener('DOMContentLoaded', showCookieBanner);
   </script>
 
-  <!-- STATCOUNTER: Afegiu aquí el codi de seguiment de Statcounter -->
-  <!-- <script type="text/javascript"> ... </script> -->
-<!-- Default Statcounter code for web-corporativa
-https://rui0042-dev.github.io/web-corporativa/ -->
-<script type="text/javascript">
-var sc_project=13214955; 
-var sc_invisible=1; 
-var sc_security="fa6a49e9"; 
-</script>
-<script type="text/javascript"
-src="https://www.statcounter.com/counter/counter.js" async></script>
-<noscript><div class="statcounter"><a title="Web Analytics"
-href="https://statcounter.com/" target="_blank"><img class="statcounter"
-src="https://c.statcounter.com/13214955/0/fa6a49e9/1/" alt="Web Analytics"
-referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-<!-- End of Statcounter Code -->
+  <!-- Statcounter (carregat condicionalment si s'accepten cookies) -->
+  <script>
+    if (localStorage.getItem('cookieConsent') === 'all') {
+      var sc_project=13214955;
+      var sc_invisible=1;
+      var sc_security="fa6a49e9";
+      var s = document.createElement('script');
+      s.src = 'https://www.statcounter.com/counter/counter.js';
+      s.async = true;
+      document.body.appendChild(s);
+    }
+  </script>
+
 </body>
 </html>
