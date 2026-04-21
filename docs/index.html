@@ -326,48 +326,31 @@
     });
 
     // Banner de cookies
-    function getCookieConsent() {
-      // Intenta localStorage, si falla (Safari privat, etc.) usa cookie de sessió
-      try {
-        return localStorage.getItem('cookieConsent');
-      } catch(e) {
-        var match = document.cookie.match(/cookieConsent=([^;]+)/);
-        return match ? match[1] : null;
-      }
+    function getCookieVal() {
+      try { return localStorage.getItem('cookieConsent'); } catch(e) {}
+      var m = document.cookie.match(/cookieConsent=([^;]+)/);
+      return m ? m[1] : null;
     }
-    function setCookieConsent(value) {
-      try {
-        localStorage.setItem('cookieConsent', value);
-      } catch(e) {}
-      // Guarda també com a cookie real (1 any) com a fallback
-      var expires = new Date();
-      expires.setFullYear(expires.getFullYear() + 1);
-      document.cookie = 'cookieConsent=' + value + '; expires=' + expires.toUTCString() + '; path=/; SameSite=Lax';
-    }
-    function showCookieBanner() {
-      var consent = getCookieConsent();
-      if (!consent) {
-        var banner = document.getElementById('cookie-banner');
-        banner.style.display = 'block';
-        // Força el reflow per garantir que l'animació funcioni
-        banner.offsetHeight;
-      }
+    function setCookieVal(v) {
+      try { localStorage.setItem('cookieConsent', v); } catch(e) {}
+      var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+      document.cookie = 'cookieConsent=' + v + '; expires=' + d.toUTCString() + '; path=/; SameSite=Lax';
     }
     function acceptCookies() {
-      setCookieConsent('all');
-      hideBanner();
+      setCookieVal('all');
+      closeBanner();
       loadStatcounter();
     }
     function rejectCookies() {
-      setCookieConsent('essential');
-      hideBanner();
+      setCookieVal('essential');
+      closeBanner();
     }
-    function hideBanner() {
-      var banner = document.getElementById('cookie-banner');
-      banner.style.opacity = '0';
-      banner.style.transform = 'translateX(-50%) translateY(20px)';
-      banner.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-      setTimeout(function() { banner.style.display = 'none'; }, 300);
+    function closeBanner() {
+      var b = document.getElementById('cookie-banner');
+      b.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      b.style.opacity = '0';
+      b.style.transform = 'translateX(-50%) translateY(20px)';
+      setTimeout(function(){ b.style.display = 'none'; }, 310);
     }
     function loadStatcounter() {
       if (document.getElementById('sc-script')) return;
@@ -381,8 +364,10 @@
       document.body.appendChild(s);
     }
     window.addEventListener('DOMContentLoaded', function() {
-      showCookieBanner();
-      if (getCookieConsent() === 'all') loadStatcounter();
+      if (!getCookieVal()) {
+        document.getElementById('cookie-banner').style.display = 'block';
+      }
+      if (getCookieVal() === 'all') loadStatcounter();
     });
   </script>
 </body>
