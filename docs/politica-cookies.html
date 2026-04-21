@@ -165,7 +165,10 @@
       btn.setAttribute('aria-expanded', isOpen);
     }
     function resetCookies() {
-      localStorage.removeItem('cookieConsent');
+      // Neteja localStorage
+      try { localStorage.removeItem('cookieConsent'); } catch(e) {}
+      // Neteja la cookie real (caducitat al passat)
+      document.cookie = 'cookieConsent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax';
       alert('Preferències restablertes. En tornar a la pàgina principal veureu el banner de cookies.');
     }
   </script>
